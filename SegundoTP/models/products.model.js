@@ -1,8 +1,7 @@
 const obtenerProductos = async () => {
     const res = await fetch('https://dummyjson.com/products');
     const datos = await res.json();
-    console.log(datos)
-    return datos;
+    return datos.products;
 }
 
 const getProducts = async () => {
