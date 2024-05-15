@@ -1,6 +1,7 @@
 const obtenerProductos = async () => {
     const res = await fetch('https://dummyjson.com/products');
     const datos = await res.json();
+    console.log(datos)
     return datos;
 }
 
@@ -15,23 +16,9 @@ const getProducts = async () => {
 
 const getProductsById = async (id) => {
     const products = await obtenerProductos();
+    const product = await products.find((product) => product.id == id)
 
-    if (!Array.isArray(products)) {
-        // Manejar el caso en el que products no sea una matriz
-        console.error('Error: products no es una matriz');
-        return "Error al obtener productos";
-    }
-
-    // Buscar manualmente el producto con el ID deseado
-    let product = null;
-    for (let i = 0; i < products.length; i++) {
-        if (products[i].id == id) {
-            product = products[i];
-            break;
-        }
-    }
-
-    return product ? product : "Producto inexistente.";
+    return product
 }
 
 export default {

@@ -1,12 +1,12 @@
 import model from '../models/products.model.js'
 
-const getProducts = () => {
-    const products = model.getProducts()
+const getProducts = async () => {
+    const products = await model.getProducts()
     return products
 }
 
-const getProductsById = (id) => {
-    const productsById = model.getProductsById(id)
+const getProductsById = async (id) => {
+    const productsById = await model.getProductsById(id)
     return productsById
 }
 

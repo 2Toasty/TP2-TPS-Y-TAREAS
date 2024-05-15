@@ -12,9 +12,9 @@ const getProducts = async (req, res) =>{
 
 const getProductsById = async (req, res) =>{
     try {
-        const id = req.params.id;
+        const {id} = req.params;
         const productById = await services.getProductsById(id);
-        res.json(productById);
+        res.send(productById);
     } catch (error) {
         console.error('Error al obtener producto por ID:', error);
         res.status(500).json({ error: 'Error al obtener producto por ID' });
